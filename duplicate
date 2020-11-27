@@ -1,0 +1,11 @@
+#!node
+const fs = require("fs");
+const newFilePath = "./" + process.argv[3];
+if(fs.existsSync(newFilePath)){
+    console.log(process.argv[3] + " already exists in directory");
+} else {
+    fs.copyFile(process.argv[2], process.argv[3], (err) => {
+    if (err) throw err;
+        console.log(process.argv[2] + ' was duplicated and saved as ' + process.argv[3]);
+    });
+}
