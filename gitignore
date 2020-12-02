@@ -1,0 +1,13 @@
+#!node
+const fs = require("fs");
+const newFilePath = "./.gitignore";
+if (fs.existsSync(newFilePath)) {
+  console.log(".gitignore already exists");
+} else {
+  fs.writeFile(newFilePath, "node_modules", function (err) {
+    if (err) {
+      return console.log(err);
+    }
+    console.log(".gitignore created successfully");
+  });
+}
